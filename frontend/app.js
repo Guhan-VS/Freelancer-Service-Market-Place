@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://127.0.0.1:8000/api';
+const API_BASE_URL = 'https://freelancer-service-market-place.onrender.com/api';
 
 const categoryList = document.getElementById('category-list');
 const freelancerGrid = document.getElementById('freelancer-grid');
