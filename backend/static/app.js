@@ -1,4 +1,4 @@
-const API_BASE_URL = '/api';
+const API_BASE_URL = window.location.origin + '/api';
 
 const categoryList = document.getElementById('category-list');
 const freelancerGrid = document.getElementById('freelancer-grid');
@@ -7,12 +7,17 @@ const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const closeBtn = document.querySelector('.close');
 
-// Load categories on start
 async function loadCategories() {
     try {
         const response = await fetch(`${API_BASE_URL}/categories/`);
+        if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         
+        if (data.categories.length === 0) {
+            categoryList.innerHTML = '<li>No categories found</li>';
+            return;
+        }
+
         categoryList.innerHTML = '';
         data.categories.forEach(category => {
             const li = document.createElement('li');
@@ -24,8 +29,14 @@ async function loadCategories() {
             };
             categoryList.appendChild(li);
         });
+        
+        // Auto-load first category
+        if (data.categories.length > 0) {
+            categoryList.firstChild.click();
+        }
     } catch (error) {
         console.error('Error loading categories:', error);
+        categoryList.innerHTML = '<li style="color:red">Error loading data</li>';
     }
 }
 
