@@ -1,6 +1,9 @@
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from .models import Freelancer, Project
+
+def home(request):
+    return render(request, 'index.html')
 
 def category_list(request):
     categories = [choice[0] for choice in Freelancer.CATEGORIES]
