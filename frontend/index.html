@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancher - Minimalist Hiring</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Freelancher</h1>
+            <p>Hire the best freelancers with 0-5 years of experience.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside id="sidebar">
+            <h3>Categories</h3>
+            <ul id="category-list">
+                <!-- Categories will be loaded here -->
+            </ul>
+        </aside>
+
+        <section id="content">
+            <h2 id="category-title">Select a Category</h2>
+            <div id="freelancer-grid" class="grid">
+                <!-- Freelancers will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Freelancer Detail -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Freelancer details and projects will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
