@@ -24,19 +24,81 @@ body {
 header {
     background: #fff;
     border-bottom: 1px solid var(--border-color);
-    padding: 40px 0;
-    text-align: center;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
 header p {
     color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 15px;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 12px;
     margin-top: 10px;
+}
+
+.view-selector {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0;
+    align-items: center;
+}
+
+.view-btn {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #999;
+    border-bottom: 2px solid transparent;
+}
+
+.view-btn.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
 }
 
 main {
@@ -111,7 +173,7 @@ main {
     margin: 0;
 }
 
-.card .exp {
+.card .meta {
     font-weight: 600;
     color: var(--accent-color);
     margin-bottom: 10px;
@@ -135,10 +197,14 @@ main {
     padding: 40px;
     border-radius: 12px;
     width: 80%;
-    max-width: 800px;
+    max-width: 600px;
     position: relative;
     max-height: 80vh;
     overflow-y: auto;
+}
+
+.auth-content {
+    max-width: 400px;
 }
 
 .close {
@@ -154,13 +220,35 @@ main {
     color: #000;
 }
 
-.project-item {
+.auth-toggle {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-toggle a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.project-item, .bid-item {
     border-top: 1px solid var(--border-color);
     padding: 20px 0;
 }
 
-.project-item h5 {
-    margin: 0 0 10px 0;
+.project-item h5, .bid-item h5 {
+    margin: 0 0 5px 0;
     font-size: 1rem;
 }
 
@@ -170,5 +258,9 @@ main {
     }
     #sidebar {
         flex: none;
+    }
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
     }
 }
