@@ -11,7 +11,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .models import Profile, Job, Bid, Project
 from .serializers import (
     UserSerializer, ProfileSerializer, JobSerializer, 
-    JobDetailSerializer, BidSerializer, ProjectSerializer
+    JobDetailSerializer, BidSerializer, ProjectSerializer,
+    ReviewSerializer, MessageSerializer
 )
 
 def home(request):
