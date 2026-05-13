@@ -14,7 +14,11 @@ const Home = () => {
     const fetchCategories = async () => {
       try {
         const response = await api.get('/categories/');
-        setCategories(response.data.categories);
+        if (response.data && Array.isArray(response.data.categories)) {
+          setCategories(response.data.categories);
+        } else {
+          console.error("Categories response format invalid", response.data);
+        }
       } catch (error) {
         console.error("Error fetching categories", error);
       }
@@ -30,9 +34,18 @@ const Home = () => {
         const response = await api.get(endpoint, {
           params: { category: selectedCategory }
         });
-        setItems(response.data);
+        if (Array.isArray(response.data)) {
+          setItems(response.data);
+        } else if (response.data && Array.isArray(response.data.results)) {
+          // Handle potential DRF pagination
+          setItems(response.data.results);
+        } else {
+          console.error(`${view} response format invalid`, response.data);
+          setItems([]);
+        }
       } catch (error) {
         console.error(`Error fetching ${view}`, error);
+        setItems([]);
       }
       setLoading(false);
     };
